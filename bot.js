@@ -535,20 +535,9 @@ client.user.setAvatar(argresult);
   client.user.setActivity(argresult , {type:'LISTENING'});
   } else    
 if (message.content.startsWith(adminprefix + 'ستريم')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/xkilleryt");//حقوق دايموند كودزحقوق دايموند كودز
-}
+  client.user.setGame(argresult, "https://www.twitch.tv/weeeeented");//py wented
 });
 
-
-if (command == "ردد") {
-let rank = message.guild.member(message.author).roles.find('name', '{ Host Owner }');
-if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
-  message.channel.send(args.join("  "))
-    message.delete();
-  }
-
-
-});
 
 
  
