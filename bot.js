@@ -53,7 +53,6 @@ antispam(client, {
 });
 
 
-/////////////////////////////////////
 
 
 var guilds = {};
@@ -148,7 +147,6 @@ channel.guild.owner.send(`<@!${channelremover.id}>
   },Otime)
   });
   
-  ///////////////////////////////////////////////
   
   
   client.on('message', message => {
@@ -199,7 +197,7 @@ client.on("message", message => {
        
   });
   
-  //////////////////////////////////////////////////////////////////
+
   
   
   client.on('message', message => {
@@ -234,7 +232,7 @@ client.on("message", message => {
 });
   
   
-  ///////////////////////////////////////////
+
   
 
   
@@ -278,7 +276,7 @@ client.on("message", message => {
     }
     });
   
- ///////////////////////////////////////////////////////////
+
  
  
   client.on('message', message => {
@@ -329,7 +327,7 @@ msg.delete();
 });
  
  
- ///////////////////////////////////////////
+
  
  client.on('message', message => {
     let args = message.content.split(' ').slice(1);
@@ -370,7 +368,7 @@ setInterval(function(){})
 
 
 
-///////////////////////
+
  
  
  
@@ -433,7 +431,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 
 });
  
- ///////////////////////////////////////////////////
+
  
  client.on("message", message => {
 	var prefix = "-";
@@ -484,13 +482,13 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 });
  
  
- ////////////////////
+
  
  client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Member"));
     });
  
- ///////////////////////////////////////
+
  
  
  
