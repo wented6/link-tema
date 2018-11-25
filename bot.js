@@ -537,6 +537,66 @@ client.on('message', message => {
 });
 
 
+client.on('message', message => {
+var prefix = "-";
+      if(message.content === prefix + "hchannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Perms ❌');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: false
+ })
+              message.channel.send('Channel Hided Successfully ! ✅  ')
+ }
+});
+
+
+client.on('message', message => {
+var prefix = "-";
+      if(message.content === prefix + "schannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('❌');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: true
+ })
+              message.channel.send('Done  ')
+ }
+});
+
+
+
+
+
+
+
+
+const adminprefix = "-";
+const devs = ['ايديك','ايديك'];
+client.on('message', message => {
+  var argresult = message.content.split(` `).slice(1).join(' ');
+    if (!devs.includes(message.author.id)) return;
+    
+if (message.content.startsWith(adminprefix + 'setgame')) {
+  client.user.setGame(argresult);
+} else 
+  if (message.content.startsWith(adminprefix + 'نيم')) {
+client.user.setUsername(argresult).then
+    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
+} else
+  if (message.content.startsWith(adminprefix + 'افتار')) {
+client.user.setAvatar(argresult);
+      } else     
+  if (message.content.startsWith(adminprefix + 'واتش')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+  } else
+  if (message.content.startsWith(adminprefix + 'لسن')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+  } else    
+if (message.content.startsWith(adminprefix + 'ستريم')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/xkilleryt");//حقوق دايموند كودزحقوق دايموند كودز
+}
+});
+
+
 
 
 
