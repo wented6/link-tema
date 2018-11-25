@@ -140,14 +140,14 @@ channel.guild.owner.send(`<@!${channelremover.id}>
   var command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
   var args = message.content.split(" ").slice(1);
-  if (command == "kick") {
+  if (command == "طرد") {
    if(!message.channel.guild) return message.reply('** This command only for servers :x:**');
    const guild = message.guild;
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**لايوجد لديك الصلاحيه للطرد**");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**لايوجد لدي الصلاحيه للطرد**");
   var user = message.mentions.users.first();
   var reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**__Mention__ A Member To Kick !**");
+  if (message.mentions.users.size < 1) return message.reply("**منشن المراد طرده !**");
   if (!message.guild.member(user).kickable) return message.reply("**Can't Kick A Higher Role Than Me !**");
   message.channel.send(`**:white_check_mark: ${user.tag} Kicked Form The Server By : <@${message.author.id}> ! :airplane:** `)
   guild.owner.send(`سيرفر : ${guild.name}
@@ -230,11 +230,11 @@ client.on("message", message => {
      
       let args = message.content.split(" ").slice(1);
      
-      if (command == "ban") {
+      if (command == "باند") {
                    if(!message.channel.guild) return message.reply('** This command only for servers**');
              
-      if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-      if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+      if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**لايوجد لديك الصلاحيه**");
+      if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**لايوجد لدي الصلاحيه**");
       let user = message.mentions.users.first();
       let reason = message.content.split(" ").slice(2).join(" ");
       /*let b5bzlog = client.channels.find("name", "5bz-log");
@@ -364,7 +364,7 @@ if (!message.content.startsWith(prefix)) return;
 	let command = message.content.split(" ")[0];
 	 command = command.slice(prefix.length);
 	let args = message.content.split(" ").slice(1);
-	if (command == "mute") {
+	if (command == "اسكت") {
 		if (!message.channel.guild) return;
 		if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
 		if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
@@ -395,7 +395,7 @@ ${message.author.tag} تمت معاقبتك بواسطة
 		.setColor("RANDOM")
 	user.send( muteembeddm);
   }
-if(command === `unmute`) {
+if(command === `تكلم`) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("**ليس لديك صلاحية لفك عن الشخص ميوت**:x: ").then(m => m.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("**ما عندي برمشن**").then(msg => msg.delete(6000))
 
@@ -422,7 +422,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
-	if( !msg.startsWith( prefix + 'role' ) ) return;
+	if( !msg.startsWith( prefix + 'رول' ) ) return;
 	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
 	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
 		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
@@ -473,9 +473,72 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
     });
  
 
+client.on('message', message => {
+    var prefix = "-";
+if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'سحب')) {
+ if (message.member.hasPermission("MOVE_MEMBERS")) {
+ if (message.mentions.users.size === 0) {
+ return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "سحب [USER]``")
+}
+if (message.member.voiceChannel != null) {
+ if (message.mentions.members.first().voiceChannel != null) {
+ var authorchannel = message.member.voiceChannelID;
+ var usermentioned = message.mentions.members.first().id;
+var embed = new Discord.RichEmbed()
+ .setTitle("Succes!")
+ .setColor("#000000")
+ .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك✅ `)
+var embed = new Discord.RichEmbed()
+.setTitle(`You are Moved in ${message.guild.name}`)
+ .setColor("RANDOM")
+.setDescription(`**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`)
+ message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+message.guild.members.get(usermentioned).send(embed)
+} else {
+message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
+}
+} else {
+ message.channel.send("**``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``**")
+}
+} else {
+message.react("❌")
+ }}});
+ 
+
+client.on('message', ra3d => {
+var prefix = "-";
+                        let args = ra3d.content.split(" ").slice(1).join(" ")
+if(ra3d.content.startsWith(prefix + 'انشاء')) {
+    if(!args) return ra3d.channel.send('`يرجي اختيار كم لون `');
+             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
+              ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
+                  setInterval(function(){})
+                    let count = 0;
+                    let ecount = 0;
+          for(let x = 1; x < `${parseInt(args)+1}`; x++){
+            ra3d.guild.createRole({name:x,
+              color: 'RANDOM'})
+              }
+            }
+       });
  
  
- 
- 
+
+
+client.on('message', message => {
+    if(message.content.includes('discord.gg')){
+                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(`** ممنوع نشر الروابط :angry: ! **`)
+    }
+}
+});
+
+
+
+
+
  
 client.login(process.env.BOT_TOKEN);
