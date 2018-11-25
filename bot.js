@@ -1,43 +1,4 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-var prefix = "-"// البرفكس هنا
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  console.log('')
-  console.log('')
-  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-  console.log(`[Start] ${new Date()}`);
-  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════════════════════════════]╗');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('╚[════════════════════════════════════]╝')
-  console.log('By Wenteed-Gnnnnn.')
-  console.log('╔[════════════]╗')
-  console.log(' Bot Is Online')
-  console.log('╚[════════════]╝')
-  console.log('')
-  console.log('')
-
-
-
-
-
-
-
-
-});
- 
- 
- 
- var guilds = {};
+var guilds = {};
 client.on('guildBanAdd', function(guild) {
             const rebellog = client.channels.find("name", "log"),
             Onumber = 3,
@@ -129,7 +90,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
   },Otime)
   });
 
-
+////////////////////////////////////////////
 
   
   
@@ -181,7 +142,7 @@ client.on("message", message => {
        
   });
   
-
+//////////////////////////////////////////////////////////////
   
   
   client.on('message', message => {
@@ -216,7 +177,7 @@ client.on("message", message => {
 });
   
   
-
+///////////////////////////////////////////////////////////
   
 
   
@@ -262,7 +223,7 @@ client.on("message", message => {
   
 
  
- 
+ ///////////////////////////////////////////////
  
  
 
@@ -305,7 +266,7 @@ setInterval(function(){})
 
 
 
-
+////////////////////////////////////
 
  
  
@@ -369,7 +330,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 
 });
  
-
+/////////////////////////////////
  
  client.on("message", message => {
 	var prefix = "-";
@@ -419,13 +380,13 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 	} 
 });
  
- 
+ ////////////////////////////////////////////////////
 
  
  client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Member"));
     });
- 
+ /////////////////////////////////////////////////////
 
 client.on('message', message => {
     var prefix = "-";
@@ -458,7 +419,7 @@ message.channel.send("``لا تستطيع سحب "+ message.mentions.members.fir
 } else {
 message.react("❌")
  }}});
- 
+ //////////////////////////////////////////////////////////////
 
 client.on('message', ra3d => {
 var prefix = "-";
@@ -478,7 +439,7 @@ if(ra3d.content.startsWith(prefix + 'انشاء')) {
        });
  
  
-
+//////////////////////////////////////////////////////
 
 client.on('message', message => {
     if(message.content.includes('discord.gg')){
@@ -493,7 +454,7 @@ client.on('message', message => {
 
 
 
-
+///////////////////////////////////////////////////////
 
 
 
@@ -529,7 +490,5 @@ if (message.content.startsWith(adminprefix + 'ستريم')) {
 
 
 	
-	
+	///////////////////////////////////////////////////
 
- 
-client.login(process.env.BOT_TOKEN);
