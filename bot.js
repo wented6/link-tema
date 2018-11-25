@@ -570,7 +570,7 @@ var prefix = "-";
 
 
 const adminprefix = "-";
-const devs = ['ايديك','ايديك'];
+const devs = ['495397239766908943','228139766573432832'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
